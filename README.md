@@ -34,7 +34,8 @@ The final project extends the initial analyses by incorporating robust modeling,
 After rigorous 10-fold Cross-Validation and threshold tuning, the models achieved the following improvements on the test set:
 - **Logistic Regression:** Accuracy: `81.82%` | F1-Score: `84.62%`
 - **SVM:** Accuracy: `77.27%` | F1-Score: `81.48%` *(improved from 80.00%)*
-- **ANN (MLP):** Accuracy: `81.82%` *(dramatik improvement from 68.18%)* | F1-Score: `85.71%` *(improved from 72.00%)*
+- **ANN (MLP):** Accuracy: `81.82%` *(dramatic improvement from 68.18%)* | F1-Score: `85.71%` *(improved from 72.00%)*
+- **Voting Ensemble:** Accuracy: `81.82%` | F1-Score: `84.62%` | AUC: `0.8333`
 
 ### 📂 Final Project Documents (`final_...` folder):
 - `*.ipynb`: The comprehensive Jupyter Notebook containing the full Python source code, EDA, Feature Engineering, Model Training, and Threshold Optimization.
