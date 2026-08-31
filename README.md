@@ -6,7 +6,18 @@ This repository contains the midterm and final project materials for the Machine
 
 ## 📌 Project Overview
 
-The project relies on the **Breast Cancer Coimbra Dataset** from the UCI Machine Learning Repository (Patrício et al., 2018). The dataset consists of 116 instances and 9 clinical predictors, which include anthropometric data and parameters gathered in routine blood analysis (Age, BMI, Glucose, Insulin, HOMA, Leptin, Adiponectin, Resistin, MCP.1).
+The project relies on the **[Breast Cancer Coimbra Dataset](https://archive.ics.uci.edu/dataset/451/breast+cancer+coimbra)** from the UCI Machine Learning Repository (Patrício et al., 2018). The dataset consists of 116 instances and 9 clinical predictors gathered in routine blood analysis:
+
+**Original Features:**
+- **Age:** Age of the patient (years)
+- **BMI:** Body Mass Index ($kg/m^2$)
+- **Glucose:** Blood sugar level ($mg/dL$)
+- **Insulin:** Insulin level ($\mu U/mL$)
+- **HOMA:** Insulin resistance indicator
+- **Leptin:** Adipose tissue hormone ($ng/mL$)
+- **Adiponectin:** Insulin sensitivity hormone ($\mu g/mL$)
+- **Resistin:** Protein associated with insulin resistance ($ng/mL$)
+- **MCP.1:** Inflammation biomarker ($pg/dL$)
 
 The primary goal is to accurately classify subjects into two categories:
 - **0 = Healthy Controls**
@@ -22,7 +33,7 @@ The final project extends the initial analyses by incorporating robust modeling,
 - **Feature Engineering:** Expanded the initial 9 features to capture complex non-linear relationships within the data, creating a richer feature space for the models.
 - **Data Balancing (SMOTE):** Handled the inherent dataset imbalance by applying the Synthetic Minority Over-sampling Technique (SMOTE) to the training data.
 - **Hyperparameter Tuning:** Conducted extensive Grid Search over the parameter space for each model (e.g., testing `adam` vs `lbfgs` solvers for ANN) to find the absolute best configurations.
-- **Threshold Optimization:** Shifted the decision thresholds (default 0.5) to maximize Accuracy and F1-scores.
+- **Threshold Optimization:** Shifted the decision thresholds (default 0.5) to maximize Accuracy and F1-scores. *(Clinical Significance: In medical diagnosis, predicting a sick patient as healthy (False Negative) is highly dangerous. Thresholds were optimized to minimize this specific risk.)*
 
 ### 🤖 Machine Learning Models Used:
 - **Logistic Regression (LR)**
@@ -32,12 +43,15 @@ The final project extends the initial analyses by incorporating robust modeling,
 
 ### 📈 Final Model Performances (After Threshold Optimization):
 After rigorous 10-fold Cross-Validation and threshold tuning, the models achieved the following improvements on the test set:
-- **Logistic Regression:** Accuracy: `81.82%` | F1-Score: `84.62%`
-- **SVM:** Accuracy: `77.27%` | F1-Score: `81.48%` *(improved from 80.00%)*
-- **ANN (MLP):** Accuracy: `81.82%` *(dramatic improvement from 68.18%)* | F1-Score: `85.71%` *(improved from 72.00%)*
-- **Voting Ensemble:** Accuracy: `81.82%` | F1-Score: `84.62%` | AUC: `0.8333`
 
-### 📂 Final Project Documents (`final_...` folder):
+| Model | Accuracy | F1-Score | Highlights |
+| :--- | :---: | :---: | :--- |
+| **Logistic Regression** | `81.82%` | `84.62%` | - |
+| **Voting Ensemble** | `81.82%` | `84.62%` | AUC: `0.8333` |
+| **ANN (MLP)** | `81.82%` | `85.71%` | Dramatic improvement from 68.18% (Acc) & 72.00% (F1) |
+| **Support Vector Machines (SVM)** | `77.27%` | `81.48%` | Improved from 80.00% (F1) |
+
+### 📂 Final Project Documents (`final/` and `docs/` folders):
 - `*.ipynb`: The comprehensive Jupyter Notebook containing the full Python source code, EDA, Feature Engineering, Model Training, and Threshold Optimization.
 - `*_doküman.pdf`: Detailed project documentation and technical report.
 - `*_makale.pdf`: Academic-style article summarizing the research, methodology, and findings.
@@ -55,7 +69,7 @@ The midterm phase laid the groundwork for the final implementation. It focused o
 - **Naive Bayes (GaussianNB)**
 - **Decision Tree Classifier**
 
-### 📂 Midterm Project Documents (`midterm_...` folder):
+### 📂 Midterm Project Documents (`vize/` and `docs/` folders):
 - `*.ipynb`: The Jupyter Notebook containing the initial EDA and baseline models.
 - `*.pdf`: Midterm project report detailing the initial findings and data understanding.
 
@@ -65,16 +79,19 @@ The midterm phase laid the groundwork for the final implementation. It focused o
 
 ```text
 📦 MachineLearning_project
- ┣ 📂 final_22040301030_Şevval_Arslan_YazılımMühendisliği_ML
- ┃ ┣ 📜 22040301030_Şevval_Arslan_YazılımMühendisliği_ML.ipynb
- ┃ ┣ 📕 22040301030_Şevval_Arslan_YazılımMühendisliği_ML_doküman.pdf
- ┃ ┣ 📕 22040301030_Şevval_Arslan_YazılımMühendisliği_ML_makale.pdf
- ┃ ┗ 📕 22040301030_Şevval_Arslan_final_sunum.pdf
- ┣ 📂 midterm_22040301030_Şevval_Arslan_YazılımMühendisliği_ML
- ┃ ┣ 📜 22040301030_Şevval_Arslan_YazılımMühendisliği_ML.ipynb
- ┃ ┗ 📕 22040301030_Şevval_Arslan_YazılımMühendisliği_ML.pdf
- ┣ 📜 .gitignore
- ┗ 📜 README.md
+ ├── 📂 data/
+ │   └── 📜 dataR2.csv
+ ├── 📂 docs/
+ │   ├── 📕 midterm_report.pdf
+ │   ├── 📕 final_report.pdf
+ │   ├── 📕 academic_article.pdf
+ │   └── 📕 final_presentation.pdf
+ ├── 📂 final/
+ │   └── 📜 final_model_training.ipynb
+ ├── 📂 vize/
+ │   └── 📜 midterm_analysis.ipynb
+ ├── 📜 .gitignore
+ └── 📜 README.md
 ```
 
 ## 🛠 Technologies & Libraries Used
